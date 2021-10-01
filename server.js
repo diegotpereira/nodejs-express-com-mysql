@@ -11,5 +11,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // rota simples
 app.get("/", (req, res) => {
-    console.log("O servidor está rodando na porta 3000.");
+    res.json("Bem vindo a aplicação");
+});
+
+require("./app/rotas/cliente.rotas.js")(app);
+
+// setar porta, ouvir pedidos
+app.listen(3000, () => {
+    console.log("O servidor está rodando na porta 3000.")
 });
